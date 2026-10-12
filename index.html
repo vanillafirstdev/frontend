@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Content-Security-Policy as a meta tag, because a static site can't send headers.
+         Only scripts and styles from this site run: no inline <script>, no onclick="", no style="".
+         (frame-ancestors only works as a real header, so it isn't here; see README.) -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Home · VanillaFirst Frontend Kit</title>
+    <meta name="description" content="A bookmark list built with plain HTML, CSS and JavaScript. No build step.">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Module scripts are deferred by default and run once the HTML is parsed. -->
+    <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <nav class="container nav" aria-label="Main">
+        <a class="logo" href="index.html">VanillaFirst</a>
+        <ul class="nav-links">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="intro">
+        <h1>It runs.</h1>
+        <p>This page is plain HTML, styled by plain CSS and brought to life by native ES modules and a
+           Web Component. There is no server code: the starter bookmarks come from
+           <code>data/bookmarks.json</code> via <code>fetch()</code>, and yours are saved in this browser's
+           <code>localStorage</code>. Edit any file and refresh.</p>
+    </section>
+
+    <section aria-labelledby="add-heading">
+        <h2 id="add-heading">Add a bookmark</h2>
+
+        <!-- novalidate: we run the browser's own validity checks from JavaScript and
+             show the messages next to each field, instead of the browser's pop-up bubbles. -->
+        <form class="stack" id="bookmark-form" novalidate>
+            <label>Title
+                <input name="title" maxlength="80" required aria-describedby="title-error">
+            </label>
+            <p class="field-error" id="title-error" hidden></p>
+
+            <label>Address
+                <input name="url" type="url" placeholder="https://" required aria-describedby="url-error">
+            </label>
+            <p class="field-error" id="url-error" hidden></p>
+
+            <label>Note (optional)
+                <input name="note" maxlength="200" aria-describedby="note-error">
+            </label>
+            <p class="field-error" id="note-error" hidden></p>
+
+            <button class="btn" type="submit">Save bookmark</button>
+        </form>
+    </section>
+
+    <section aria-labelledby="list-heading">
+        <div class="toolbar">
+            <h2 id="list-heading">Bookmarks <small id="bookmark-count"></small></h2>
+            <button class="btn btn-ghost" type="button" id="reset-bookmarks">Reset to starter list</button>
+        </div>
+
+        <div class="grid" id="bookmark-list" aria-live="polite">
+            <p class="notice" id="js-notice">Loading bookmarks… If this message stays, the JavaScript didn't load.
+               Open the site through a local web server rather than by double-clicking <code>index.html</code>:
+               the README explains why and how.</p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer container">
+    <p>Plain HTML, CSS and JavaScript. Zero build steps.</p>
+</footer>
+</body>
+</html>

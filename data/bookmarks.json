@@ -1,0 +1,5 @@
+[
+  { "id": "seed-1", "title": "MDN Web Docs", "url": "https://developer.mozilla.org/", "note": "HTML, CSS and JavaScript reference" },
+  { "id": "seed-2", "title": "web.dev", "url": "https://web.dev/", "note": "Guides on performance and accessibility" },
+  { "id": "seed-3", "title": "Can I use", "url": "https://caniuse.com/", "note": "Which browsers support a feature" }
+]

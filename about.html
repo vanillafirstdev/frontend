@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>About · VanillaFirst Frontend Kit</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+<header class="site-header">
+    <nav class="container nav" aria-label="Main">
+        <a class="logo" href="index.html">VanillaFirst</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>About this kit</h1>
+    <p>Every file here is sent to the browser exactly as written. There is no <code>node_modules</code>,
+       no bundler and no compile step between your editor and the page.</p>
+    <p>Each page is its own HTML file, so a new page is a copied file and a new link. Start with
+       <code>index.html</code>, then <code>assets/js/main.js</code>, which wires the form, the list and
+       storage together.</p>
+    <p>The VanillaFirst Backend Kit serves the same bookmarks as a JSON API, and the Full-Stack Kit
+       builds the same list with PHP pages and SQLite, so the data lives on a server instead of in one
+       browser. Compare them to see exactly what a back end adds.</p>
+</main>
+
+<footer class="site-footer container">
+    <p>Plain HTML, CSS and JavaScript. Zero build steps.</p>
+</footer>
+</body>
+</html>
